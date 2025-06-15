@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Оформление заказа</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-image: url('photo/background1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #3fe6df;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"],
+    .btn2 {
+      background-color: #28403d;
+      color: #3fe6df;
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    input[type="submit"]:hover,
+    .btn2:hover {
+      background-color: #218838;
+    }
+
+    .btn-custom {
+      display: inline-block;
+      margin: 10px 10px 0 0;
+      padding: 10px 20px;
+      background-color: #28403d;
+      color: #3fe6df;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .header {
+      position: fixed;
+      top: 2%;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background-color: #1a1a1a;
+      color: #3fe6df;
+      margin: 15% auto;
+      padding: 20px;
+      border: 2px solid #3fe6df;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .modal-content button {
+      background-color: #28403d;
+      color: #3fe6df;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="index.html" class="btn-custom" style="float: left; margin-left: 20px;">На главную</a>
+  </div>
+
+  <div class="container">
+    <h1>Оформление заказа</h1>
+    <form id="orderForm" action="#" method="post">
+      <label for="name">Имя:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="address">Адрес доставки:</label>
+      <input type="text" id="address" name="address" required />
+
+      <label for="quantity">Количество банок:</label>
+      <input type="number" id="quantity" name="quantity" min="1" required />
+
+      <label for="phone">Номер телефона:</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        pattern="^\+7\d{10}$"
+        placeholder="+7(xxx)xxxxxxx"
+        required
+        title="Номер должен начинаться с +7 и содержать 11 цифр"
+      />
+
+      <label for="email">Электронная почта:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        pattern="^[a-zA-Z0-9]+@(gmail\.com|mail\.ru)$"
+        placeholder="example@gmail.com"
+        required
+        title="Введите email в формате example@gmail.com или example@mail.ru"
+      />
+
+      <button type="submit" class="btn2">Оформить заказ</button>
+    </form>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <p id="modal-message"></p>
+      <button id="closeModal">OK</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+
+      const message = `Спасибо, ${name}!<br>Ваш заказ успешно оформлен.<br>Мы свяжемся с вами по почте: ${email}`;
+
+      document.getElementById("modal-message").innerHTML = message;
+      document.getElementById("modal").style.display = "block";
+
+      this.reset();
+    });
+
+    document.getElementById("closeModal").addEventListener("click", function () {
+      document.getElementById("modal").style.display = "none";
+    });
+  </script>
+</body>
+</html>
+
+
+

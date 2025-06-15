@@ -1,39 +1,101 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lit Energy</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #3fe6de;
-            color: #28403d;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        img {
-            width: 300px;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #28403d;
-            color: #3fe6df;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ЛИТР ИНЖЕРО
+  </title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-image: url('photo/background1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #3fe6df;
+    }
+
+    .container {
+      margin-top: 100px;
+    }
+
+    .btn-custom {
+      display: inline-block;
+      display: inline-block;
+      margin: 10px 10px 0 0;
+      padding: 10px 20px;
+      background-color: #28403d;
+      color: #3fe6df;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .header {
+      position: fixed;
+      top: 2%;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .carousel-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .carousel-inner img {
+      height: 500px;
+      object-fit: contain;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Зарядись энергией с ЛИТР ИНЖЕРО!</h1>
-        <img src="photo\litmain.png" alt="Банка Lit Energy">
-        <br>
-        <a href="about.html" class="btn">О товаре</a>
+<div class="header">
+  <a href="buy.html" class="btn-custom" style="float: left; margin-left: 20px;">Заказать</a>
+  <a href="faq.html" class="btn-custom" style="float: left; margin-left: 10px;">FAQ</a>
+  <a href="about-us.html" class="btn-custom" style="float: left; margin-left: 10px;">О нас</a>
+    <a href="reviews.html" class="btn-custom" style="float: left; margin-left: 10px;">Отзывы</a>
+</div>
+
+  <div class="container">
+    <h1>Зарядись энергией с ЛИТР ИНЖЕРО!</h1>
+
+    <div id="litCarousel" class="carousel slide carousel-container">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="photo/lit1.webp" class="d-block w-100" alt="Lit Energy 1">
+        </div>
+        <div class="carousel-item">
+          <img src="photo/lit2.webp" class="d-block w-100" alt="Lit Energy 2">
+        </div>
+        <div class="carousel-item">
+          <img src="photo/lit3.webp" class="d-block w-100" alt="Lit Energy 3">
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#litCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Предыдущий</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#litCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Следующий</span>
+      </button>
     </div>
+
+    <a href="structure.html" class="btn-custom">О товаре</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
+
